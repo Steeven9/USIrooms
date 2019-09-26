@@ -1,5 +1,7 @@
 // vim: set ts=2 sw=2 et tw=80:
 
+const URL = 'http://atelier.inf.usi.ch/~maggicl/proxy.php?url=https://aule.usi.ch/aule/View.aspx?name=';
+
 function roomStatus(room, callback) {
   return new Promise((resolve, _) => {
     const xhr = new XMLHttpRequest();
@@ -12,15 +14,14 @@ function roomStatus(room, callback) {
 
       for (let lesson of lessons) {
         const time = lesson.querySelector('span[id$=lblOrario]');
-
         const start = new Date();
-        start.setHours(parseInt(time.innerHTML.substring(1,3)));
-        start.setMinutes(parseInt(time.innerHTML.substring(4,6)));
+        start.setHours(parseInt(time.innerText.substring(1,3)));
+        start.setMinutes(parseInt(time.innerText.substring(4,6)));
         start.setSeconds(0);
 
         const end = new Date();
-        end.setHours(parseInt(time.innerHTML.substring(7,9)));
-        end.setMinutes(parseInt(time.innerHTML.substring(10,12)));
+        end.setHours(parseInt(time.innerText.substring(7,9)));
+        end.setMinutes(parseInt(time.innerText.substring(10,12)));
         end.setSeconds(0);
 
         parsed.push({
@@ -32,7 +33,7 @@ function roomStatus(room, callback) {
 
       resolve(parsed);
     });
-    xhr.open('GET', 'https://aule.usi.ch/aule/View.aspx?name=' + room);
+    xhr.open('GET', URL + room);
     xhr.send();
   });
 }
