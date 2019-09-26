@@ -1,6 +1,6 @@
 // vim: set ts=2 sw=2 et tw=80:
 
-const URL = 'http://atelier.inf.usi.ch/~maggicl/proxy.php?url=https://aule.usi.ch/aule/View.aspx?name=';
+const URL = 'https://usirooms.maggioni.xyz/schedule.html?name=';
 const NOW = new Date();
 
 const timeTable = {};
