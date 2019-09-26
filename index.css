@@ -1,0 +1,63 @@
+* {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+body {
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+h1 {
+    text-align: center;
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    width: 100%;
+}
+
+input[type=range] {
+    width: 100%;
+}
+
+.room-map {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.room {
+    margin: 0.5rem;
+    background: #e0e0e0;
+    border-radius: 8px;
+    padding: 0.2rem;
+}
+
+.room h3 {
+    font-size: 1.6rem;
+}
+
+.room p {
+    font-size: 1.2rem;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.room-big {
+    flex: 1 1 100%;
+}
+
+.room-small {
+    flex: 1 1 45%;
+}
+
+.schedule {
+    border-color: #f1f2f3;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 0.2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
