@@ -1,55 +1,72 @@
 <!DOCTYPE html>
 <!-- vim: set ts=2 sw=2 et tw=80: -->
 <html>
-  <head>
+<head>
     <meta charset='utf-8'>
     <title>USI • Rooms availability</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans&display=swap">
-    <link rel="stylesheet" href="index.css">
-  </head>
-  <body>
+    <link rel="icon" href="assets/images/icon-64.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="assets/index.css">
+</head>
+<body>
     <h1>USI INF room availability</h1>
 
     <div class="room-map">
         <div class="room room-big" id="SI-003">
-            <h3>SI-003</h3>
-            <p>Free</p>
+            <a href="#schedule-SI-003">
+                <h3>SI-003</h3>
+                <p>???</p>
+            </a>
         </div>
         <!-- Row -->
         <div class="room room-small" id="SI-004">
-            <h3>SI-004</h3>
-            <p>Free</p>
+            <a href="#schedule-SI-004">
+                <h3>SI-004</h3>
+                <p>???</p>
+            </a>
         </div>
         <div class="room room-small" id="SI-015">
-            <h3>SI-015</h3>
-            <p>Free</p>
+            <a href="#schedule-SI-015">
+                <h3>SI-015</h3>
+                <p>???</p>
+            </a>
         </div>
         <!-- Row -->
         <div class="room room-big" id="SI-006">
-            <h3>SI-006</h3>
-            <p>Free</p>
+            <a href="#schedule-SI-006">
+                <h3>SI-006</h3>
+                <p>???</p>
+            </a>
         </div>
         <!-- Row -->
         <div class="room room-small" id="SI-007">
-            <h3>SI-007</h3>
-            <p>Free</p>
+            <a href="#schedule-SI-007">
+                <h3>SI-007</h3>
+                <p>???</p>
+            </a>
         </div>
         <div class="room room-small" id="SI-013">
-            <h3>SI-013</h3>
-            <p>Free</p>
+            <a href="#schedule-SI-013">
+                <h3>SI-013</h3>
+                <p>???</p>
+            </a>
         </div>
         <!-- Row -->
         <div class="room room-big room" id="SI-008">
-            <h3>SI-008</h3>
-            <p>Free</p>
+            <a href="#schedule-SI-008">
+                <h3>SI-008</h3>
+                <p>???</p>
+            </a>
         </div>
     </div>
 
-    <h2 id="timepreviewer">Time: 18:00</h2>
-    <input type="range" id="timemachine" />
+    <div class="timepicker">
+        <h2 id="timepreviewer">Loading...</h2>
+        <input type="range" id="timemachine" />
+    </div>
 
     <div class="schedule">
         <h1>Schedule for today</h1>
@@ -72,6 +89,7 @@
           </li>
         </template>
     </div>
+
     <script src='index.js'></script>
-  </body>
+ </body>
 </html>

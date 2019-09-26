@@ -75,14 +75,13 @@ function colorRoom(roomTitle, node, time = NOW /* QuantumLeap */) {
         return
     }
 
-    console.log(roomTitle, time);
-
     const currentLecture = data.filter(d => d.start < time && d.end > time)[0];
     const isFree = currentLecture === void(0);
     const block = document.getElementById(roomTitle);
 
-    block.style.background = isFree ? "#d4edda" : "#f8d7da";
-    block.style.color = isFree ? "#155724" : "#721c24";
+    block.className = isFree ?
+        block.className.replace("room-in-use", "") + " room-free" :
+        block.className.replace("room-free", "") + " room-in-use";
 
     block.querySelector('p').innerHTML = isFree ? 'Free' :
         currentLecture.title + "<br> (" + formatTime(currentLecture.start) + " - " +
@@ -94,12 +93,13 @@ async function buildRoomMarkup(roomTitle) {
     const room = getRoomNode();
     const title = room.querySelector('.room-title');
     title.innerHTML = roomTitle;
+    title.id = "schedule-" + roomTitle;
     const list = room.querySelector('.list');
 
     for (const d of data) {
         const slot = document.importNode(SLOT_TEMPLATE.content, true);
         const title = slot.querySelector('.title');
-        document.getElementById("room");title.innerHTML = d.title;
+        title.innerHTML = d.title;
         const start = slot.querySelector('.start');
         start.innerHTML = formatTime(d.start);
         const end = slot.querySelector('.end');
@@ -119,23 +119,19 @@ async function buildRoomMarkup(roomTitle) {
 
 function setTimePreview(date = NOW) {
     const timePreview = document.getElementById('timepreviewer');
-    timePreview.innerText = formatTime(date);
+    timePreview.innerText = "Time: " + formatTime(date);
 }
 
 function setupTimeMachine() {
     const slider = document.getElementById('timemachine');
     slider.min = 0;
-    slider.max = 92 - (NOW.getHours() * 4); // 24 * 4 - now[h]
-    // 00 15 30 45 60 15 30 45 00 15 30 45
-    // 00 00 00 00 01 01 01
-    //
+    slider.max = 92 - (NOW.getHours() * 4);
 
     slider.value = slider.min;
 
     slider.addEventListener("input", (e) => {
         const hours = Math.round(slider.value / 4);
-        const mins = Math.round(slider.value % 60);
-        console.log(hours, mins);
+        const mins = slider.value % 60;
         let newDate = new Date();
         newDate.setHours(newDate.getHours() + hours);
         newDate.setMinutes(newDate.getMinutes() + mins);
