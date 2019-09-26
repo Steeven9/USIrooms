@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- vim: set ts=2 sw=2 et tw=80: -->
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>USI INF room checker</title>
+  </head>
+  <body>
+    <h1>USI INF room checker</h1>
+    <h4>By maggicl</h4>
+    <section class="times">
+    </section>
+
+    <template id="room">
+      <h2 class="room-title"></h2>
+      <ul class="list"></ul>
+    </template>
+
+    <template id="time-free">
+      <li><strong>Free all day</strong></li>
+    </template>
+
+    <template id="time-slot">
+      <li>
+        <span class="title"></span>
+        (<span class="start"></span>-<span class="end"></span>)
+      </li>
+    </template>
+    <script src='index.js'></script>
+  </body>
+</html>
