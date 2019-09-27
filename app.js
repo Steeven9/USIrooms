@@ -1,4 +1,5 @@
 // vim: set ts=2 sw=2 et tw=80:
+
 // Real code
 
 const URL = 'https://usirooms.maggioni.xyz/schedule.html?name=';
@@ -118,7 +119,7 @@ async function buildRoomMarkup(roomTitle) {
     ROOM_LIST.appendChild(room);
 }
 
-function setTimePreview(date = NOW) {
+function setTimePreview(date) {
     const timePreview = document.getElementById('timepreviewer');
     timePreview.innerText = "Time: " + formatTime(date);
 }
@@ -127,11 +128,13 @@ function setupTimeMachine() {
     const slider = document.getElementById('timemachine');
     slider.min = 0;
     // Remaining minutes until 23:59
-    slider.max = 1380 - (NOW.getHours() * 60) - NOW.getMinutes() - 1;
+    // 24 * 60 - [current hours * 60] - [current minutes] - [1 min to midnight]
+    slider.max = 1440 - (NOW.getHours() * 60) - NOW.getMinutes() - 1;
 
     slider.addEventListener("input", (e) => {
-        const hours = Math.round(slider.value / 60);
+        const hours = Math.floor(slider.value / 60);
         const mins = slider.value % 60;
+
         let newDate = new Date();
         newDate.setHours(newDate.getHours() + hours);
         newDate.setMinutes(newDate.getMinutes() + mins);
@@ -143,6 +146,10 @@ function setupTimeMachine() {
             colorRoom(roomTitle, node, newDate);
         });
     });
+
+    // 10 mins into the future by default
+    slider.value = 10;
+    setTimePreview(new Date(NOW.getTime() + 600000));
 }
 
 (async function() {
@@ -152,4 +159,3 @@ for (const room of ROOMS) {
 })()
 
 setupTimeMachine();
-setTimePreview();
