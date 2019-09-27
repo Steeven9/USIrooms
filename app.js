@@ -1,4 +1,5 @@
 // vim: set ts=2 sw=2 et tw=80:
+// Real code
 
 const URL = 'https://usirooms.maggioni.xyz/schedule.html?name=';
 const NOW = new Date();
@@ -79,9 +80,9 @@ function colorRoom(roomTitle, node, time = NOW /* QuantumLeap */) {
     const isFree = currentLecture === void(0);
     const block = document.getElementById(roomTitle);
 
-    block.className = isFree ?
-        block.className.replace("room-in-use", "") + " room-free" :
-        block.className.replace("room-free", "") + " room-in-use";
+    block.className = block.className.replace(" room-in-use", "")
+        .replace(" room-free", "");
+    block.className += isFree ? " room-free" : " room-in-use";
 
     block.querySelector('p').innerHTML = isFree ? 'Free' :
         currentLecture.title + "<br> (" + formatTime(currentLecture.start) + " - " +
@@ -125,12 +126,11 @@ function setTimePreview(date = NOW) {
 function setupTimeMachine() {
     const slider = document.getElementById('timemachine');
     slider.min = 0;
-    slider.max = 92 - (NOW.getHours() * 4);
-
-    slider.value = slider.min;
+    // Remaining minutes until 23:59
+    slider.max = 1380 - (NOW.getHours() * 60) - NOW.getMinutes() - 1;
 
     slider.addEventListener("input", (e) => {
-        const hours = Math.round(slider.value / 4);
+        const hours = Math.round(slider.value / 60);
         const mins = slider.value % 60;
         let newDate = new Date();
         newDate.setHours(newDate.getHours() + hours);
