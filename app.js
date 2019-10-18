@@ -45,11 +45,11 @@ function roomStatus(room, callback) {
 
 const ROOMS = [
   'SI-003',
-  'SI-004',
   'SI-015',
+  'SI-004',
   'SI-006',
-  'SI-007',
   'SI-013',
+  'SI-007',
   'SI-008',
 ];
 
