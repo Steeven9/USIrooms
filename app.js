@@ -8,49 +8,49 @@ const NOW = new Date();
 const timeTable = {};
 
 function roomStatus(room, callback) {
-  return new Promise((resolve, _) => {
-    const xhr = new XMLHttpRequest();
-    xhr.addEventListener('load', () => {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(xhr.responseText, 'text/html');
-      const lessons =
-        doc.querySelectorAll('table.rsContentTable div.rsAptSimple');
-      const parsed = [];
+    return new Promise((resolve, _) => {
+        const xhr = new XMLHttpRequest();
+        xhr.addEventListener('load', () => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(xhr.responseText, 'text/html');
+            const lessons = doc.querySelectorAll(
+                'table.rsContentTable div.rsAptSimple');
+            const parsed = [];
 
-      for (let lesson of lessons) {
-        const time = lesson.querySelector('span[id$=lblOrario]');
-        const start = new Date();
-        start.setHours(parseInt(time.innerText.substring(1,3)));
-        start.setMinutes(parseInt(time.innerText.substring(4,6)));
-        start.setSeconds(0);
+            for (let lesson of lessons) {
+                const time = lesson.querySelector('span[id$=lblOrario]');
+                const start = new Date();
+                start.setHours(parseInt(time.innerText.substring(1,3)));
+                start.setMinutes(parseInt(time.innerText.substring(4,6)));
+                start.setSeconds(0);
 
-        const end = new Date();
-        end.setHours(parseInt(time.innerText.substring(7,9)));
-        end.setMinutes(parseInt(time.innerText.substring(10,12)));
-        end.setSeconds(0);
+                const end = new Date();
+                end.setHours(parseInt(time.innerText.substring(7,9)));
+                end.setMinutes(parseInt(time.innerText.substring(10,12)));
+                end.setSeconds(0);
 
-        parsed.push({
-          title: lesson.getAttribute('title'),
-          start: start,
-          end: end
+                parsed.push({
+                    title: lesson.getAttribute('title'),
+                    start: start,
+                    end: end
+                });
+            }
+
+            resolve(parsed);
         });
-      }
-
-      resolve(parsed);
+        xhr.open('GET', URL + room);
+        xhr.send();
     });
-    xhr.open('GET', URL + room);
-    xhr.send();
-  });
 }
 
 const ROOMS = [
-  'SI-003',
-  'SI-015',
-  'SI-004',
-  'SI-006',
-  'SI-013',
-  'SI-007',
-  'SI-008',
+    'SI-003',
+    'SI-015',
+    'SI-004',
+    'SI-006',
+    'SI-013',
+    'SI-007',
+    'SI-008',
 ];
 
 const ROOM_LIST = document.querySelector(".times");
@@ -152,10 +152,10 @@ function setupTimeMachine() {
     setTimePreview(new Date(NOW.getTime() + 600000));
 }
 
-(async function() {
-for (const room of ROOMS) {
-    await buildRoomMarkup(room);
-}
-})()
+(async () => {
+    for (const room of ROOMS) {
+        await buildRoomMarkup(room);
+    }
+})();
 
 setupTimeMachine();

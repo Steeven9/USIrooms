@@ -1,21 +1,21 @@
 {
-  "short_name": "USI Rooms",
-  "name": "USI INF Rooms",
-  "icons": [
-    {
-      "src": "./assets/images/icon-192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "./assets/images/icon-512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": "./index.html",
-  "background_color": "#fafafa",
-  "display": "standalone",
-  "scope": "./",
-  "theme_color": "#333333"
+    "short_name": "USI Rooms",
+    "name": "USI INF Rooms",
+    "icons": [
+        {
+            "src": "./assets/images/icon-192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "./assets/images/icon-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "./index.html",
+    "background_color": "#fafafa",
+    "display": "standalone",
+    "scope": "./",
+    "theme_color": "#333333"
 }
