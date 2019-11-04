@@ -1,4 +1,5 @@
 /* Inter font */
+/* vim: set ts=2 sw=2 et tw=80: */
 
 @font-face {
   font-family: 'Inter';
@@ -6,7 +7,7 @@
   font-weight: 400;
   font-display: swap;
   src: url("fonts/Inter-Regular.woff2") format("woff2"),
-       url("fonts/Inter-Regular.woff") format("woff");
+  url("fonts/Inter-Regular.woff") format("woff");
 }
 
 @font-face {
@@ -15,243 +16,243 @@
   font-weight: 800;
   font-display: swap;
   src: url("fonts/Inter-ExtraBold.woff2") format("woff2"),
-       url("fonts/Inter-ExtraBold.woff") format("woff");
+  url("fonts/Inter-ExtraBold.woff") format("woff");
 }
 
 /* Base */
 
 * {
-    font-family: 'Inter', sans-serif;
-    color: #212529;
+  font-family: 'Inter', sans-serif;
+  color: #212529;
 }
 
 h1 {
-    text-align: center;
-    width: 100%;
+  text-align: center;
+  width: 100%;
 }
 
 h2 {
-    text-align: center;
-    width: 100%;
+  text-align: center;
+  width: 100%;
 }
 
 /* Slider */
 
 input[type=range] {
-    -webkit-appearance: none;
-    border: 0;
-    height: 28px;
-    margin: 8px 0;
-    outline: none;
-    padding: 0 8px;
-    width: 100%;
+  -webkit-appearance: none;
+  border: 0;
+  height: 28px;
+  margin: 8px 0;
+  outline: none;
+  padding: 0 8px;
+  width: 100%;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
-    background: #b1b1bc;
-    border-radius: 2px;
-    height: 4px;
+  background: #b1b1bc;
+  border-radius: 2px;
+  height: 4px;
 }
 
 input[type="range"]::-moz-range-track {
-    background: #b1b1bc;
-    height: 4px;
+  background: #b1b1bc;
+  height: 4px;
 }
 
 input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    background: #212529;
-    border: 4px solid #ededf0;
-    border-radius: 50%;
-    cursor: pointer;
-    height: 28px;
-    margin-top: -12px;
-    width: 28px;
+  -webkit-appearance: none;
+  background: #212529;
+  border: 4px solid #ededf0;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  margin-top: -12px;
+  width: 28px;
 }
 
 input[type="range"]::-moz-range-thumb {
-    background: #212529;
-    border: 4px solid #ededf0;
-    border-radius: 50%;
-    cursor: pointer;
-    height: 20px;
-    width: 20px;
+  background: #212529;
+  border: 4px solid #ededf0;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
 }
 
 input[type="range"]::-moz-focus-outer {
-    border: 0;
+  border: 0;
 }
 
 input[type="range"]::-moz-range-progress {
-    background: #212529;
-    border-radius: 4px;
-    height: 4px;
+  background: #212529;
+  border-radius: 4px;
+  height: 4px;
 }
 
 /* Room map */
 
 .room-map {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-left: 10vw;
-    padding-right: 10vw;
-    text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  text-align: center;
 }
 
 .room {
-    margin: 0.5rem;
-    background: #ededf0;
-    border-radius: 6px;
-    padding: 0.5rem;
-    transition: all 0.5s ease;
+  margin: 0.5rem;
+  background: #ededf0;
+  border-radius: 6px;
+  padding: 0.5rem;
+  transition: all 0.5s ease;
 }
 
 .room:hover {
-    box-shadow: 0 4px 8px #0000002a;
+  box-shadow: 0 4px 8px #0000002a;
 }
 
 .room a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .room h3 {
-    font-size: 1.6rem;
-    font-weight: 700;
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 
 .room p {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .room-big {
-    flex: 1 1 100%;
+  flex: 1 1 100%;
 }
 
 .room-small {
-    flex: 1 1 45%;
+  flex: 1 1 45%;
 }
 
 .room-free {
-    background-color: #3FE1B0;
+  background-color: #3FE1B0;
 }
 
 .room-in-use {
-    background-color: #FF505F;
+  background-color: #FF505F;
 }
 
 @media screen and (max-width: 830px) {
-    .room {
-        padding: 0.2rem;
-    }
+  .room {
+    padding: 0.2rem;
+  }
 
-    .room-big {
-        flex: 1 1 80%;
-    }
+  .room-big {
+    flex: 1 1 80%;
+  }
 
-    .room-small {
-        flex: 1 1 35%;
-    }
+  .room-small {
+    flex: 1 1 35%;
+  }
 }
 
 /* Time */
 .timepicker {
-    border: #00000033 solid 1px;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px #0000001a;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    margin: 2rem 5vw;
-    text-align: center;
+  border: #00000033 solid 1px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px #0000001a;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 2rem 5vw;
+  text-align: center;
 }
 
 /* Schedule */
 
 .schedule {
-    border: #00000033 solid 1px;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px #0000001a;
-    padding: 1rem;
-    margin: 2rem 5vw;
+  border: #00000033 solid 1px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px #0000001a;
+  padding: 1rem;
+  margin: 2rem 5vw;
 }
 
 .schedule h2 {
-    font-weight: 800;
-    text-align: start;
+  font-weight: 800;
+  text-align: start;
 }
 
 /* Dark mode */
 
 @media(prefers-color-scheme: dark) {
-    * {
-        color: #f9f9fa;
-    }
+  * {
+    color: #f9f9fa;
+  }
 
-    body {
-        background: #212529;
-    }
+  body {
+    background: #212529;
+  }
 
-    input[type="range"] {
-        background-color: #2d3339;
-    }
+  input[type="range"] {
+    background-color: #2d3339;
+  }
 
-    input[type="range"]::-webkit-slider-runnable-track {
-        background: #7a7a8b;
-    }
+  input[type="range"]::-webkit-slider-runnable-track {
+    background: #7a7a8b;
+  }
 
-    input[type="range"]::-moz-range-track {
-        background: #7a7a8b;
-    }
+  input[type="range"]::-moz-range-track {
+    background: #7a7a8b;
+  }
 
-    input[type="range"]::-webkit-slider-thumb {
-        background: #f9f9fa;
-        border: 4px solid #5e5e72;
-    }
+  input[type="range"]::-webkit-slider-thumb {
+    background: #f9f9fa;
+    border: 4px solid #5e5e72;
+  }
 
-    input[type="range"]::-moz-range-thumb {
-        background: #f9f9fa;
-        border: 4px solid #5e5e72;
-    }
+  input[type="range"]::-moz-range-thumb {
+    background: #f9f9fa;
+    border: 4px solid #5e5e72;
+  }
 
-    input[type="range"]::-moz-range-progress {
-        background: #f9f9fa;
-    }
+  input[type="range"]::-moz-range-progress {
+    background: #f9f9fa;
+  }
 
-    .room {
-        margin: 0.5rem;
-        background: #2d3339;
-        border-radius: 6px;
-        padding: 0.5rem;
-        transition: all 0.5s ease;
-    }
+  .room {
+    margin: 0.5rem;
+    background: #2d3339;
+    border-radius: 6px;
+    padding: 0.5rem;
+    transition: all 0.5s ease;
+  }
 
 
-    .room-free {
-        background-color: #3FE1B0;
-    }
+  .room-free {
+    background-color: #3FE1B0;
+  }
 
-    .room-free:hover {
-        box-shadow: 0 4px 8px #b3ffe333;
-    }
+  .room-free:hover {
+    box-shadow: 0 4px 8px #b3ffe333;
+  }
 
-    .room-in-use {
-        background-color: #ff6a75;
-    }
+  .room-in-use {
+    background-color: #ff6a75;
+  }
 
-    .room-in-use:hover {
-        box-shadow: 0 4px 8px #ff6a7533;
-    }
+  .room-in-use:hover {
+    box-shadow: 0 4px 8px #ff6a7533;
+  }
 
-    .timepicker {
-        border: #384047 solid 1px;
-        background-color: #2d3339;
-        box-shadow: 0 0 0 #00000000;
-    }
+  .timepicker {
+    border: #384047 solid 1px;
+    background-color: #2d3339;
+    box-shadow: 0 0 0 #00000000;
+  }
 
-    .schedule {
-        border: #384047 solid 1px;
-        background-color: #2d3339;
-        box-shadow: 0 0 0 #00000000;
-    }
+  .schedule {
+    border: #384047 solid 1px;
+    background-color: #2d3339;
+    box-shadow: 0 0 0 #00000000;
+  }
 }
