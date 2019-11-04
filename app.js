@@ -30,7 +30,8 @@ function roomStatus(room, callback) {
         end.setSeconds(0);
 
         parsed.push({
-          title: lesson.getAttribute('title'),
+          title: lesson.getAttribute('title').
+            replace(/\s*S[PA] \d\d\d\d-\d\d\d\d\s*/g, ''),
           start: start,
           end: end
         });
@@ -126,30 +127,27 @@ function setTimePreview(date) {
 
 function setupTimeMachine() {
     const slider = document.getElementById('timemachine');
-    slider.min = 0;
-    // Remaining minutes until 23:59
-    // 24 * 60 - [current hours * 60] - [current minutes] - [1 min to midnight]
-    slider.max = 1440 - (NOW.getHours() * 60) - NOW.getMinutes() - 1;
+    slider.min = 8 * 60 + 30;
+    slider.max = 19 * 60 + 30;
 
     slider.addEventListener("input", (e) => {
-        const hours = Math.floor(slider.value / 60);
-        const mins = slider.value % 60;
-
-        let newDate = new Date();
-        newDate.setHours(newDate.getHours() + hours);
-        newDate.setMinutes(newDate.getMinutes() + mins);
+        const date = new Date();
+        date.setHours(0);
+        date.setMinutes(slider.value);
         const node = getRoomNode();
 
-        setTimePreview(newDate)
+        setTimePreview(date);
 
         ROOMS.forEach((roomTitle) => {
-            colorRoom(roomTitle, node, newDate);
+            colorRoom(roomTitle, node, date);
         });
     });
 
-    // 10 mins into the future by default
-    slider.value = 10;
-    setTimePreview(new Date(NOW.getTime() + 600000));
+    const date = new Date();
+    const mins = date.getHours() * 60 + date.getMinutes();
+    slider.value = mins < slider.min ? slider.min :
+      mins > slider.max ? slider.max : mins;
+    setTimePreview(date);
 }
 
 (async function() {
