@@ -137,6 +137,10 @@ input[type="range"]::-moz-range-progress {
   background-color: #3FE1B0;
 }
 
+.room-unassigned {
+  background-color: #fe8a4f;
+}
+
 .room-in-use {
   background-color: #FF505F;
 }
