@@ -30,11 +30,36 @@ function roomStatus(room, callback) {
         end.setSeconds(0);
 
         parsed.push({
-          title: lesson.getAttribute('title'),
+          title: lesson.getAttribute('title').trim(),
           start: start,
           end: end
         });
       }
+
+      let start = new Date();
+      start.setHours(0);
+      start.setMinutes(0);
+      start.setSeconds(0);
+
+      let s = start;
+
+      let end = new Date();
+      end.setHours(23);
+      end.setMinutes(59);
+      end.setSeconds(0);
+
+      const holes = [];
+      for (let i = 0; i <= parsed.length; i++) {
+        const time = i == parsed.length ? end : parsed[i].start;
+        if (time > s) {
+          holes.push({title: "Unassigned", start: s, end: time});
+        }
+        if (time != end) {
+          s = parsed[i].end;
+        }
+      }
+
+      parsed.push(...holes);
 
       resolve(parsed);
     });
@@ -77,16 +102,22 @@ function colorRoom(roomTitle, node, time = NOW /* QuantumLeap */) {
     return
   }
 
-  const currentLecture = data.filter(d => d.start < time && d.end > time)[0];
-  const isFree = currentLecture === void(0);
+  const currentLecture = data.filter(d => d.start < time && d.end > time)[0] || null;
+  const isFree = !!currentLecture && !!currentLecture.title &&
+    currentLecture.title === "Overflow";
+  console.log(roomTitle, isFree);
   const block = document.getElementById(roomTitle);
 
-  block.className = block.className.replace(" room-in-use", "")
-    .replace(" room-free", "");
-  block.className += isFree ? " room-free" : " room-in-use";
+  block.className = block.className
+    .replace(" room-in-use", "")
+    .replace(" room-free", "")
+    .replace(" room-unassigned", "");
+  block.className += isFree ? " room-free" :
+    currentLecture.title === "Unassigned" ? " room-unassigned" : " room-in-use";
 
-  block.querySelector('p').innerHTML = isFree ? 'Free' :
-    currentLecture.title + "<br> (" + formatTime(currentLecture.start) + " - " +
+  block.querySelector('p').innerHTML = isFree ? 'Free (overflow)' :
+    (currentLecture ? currentLecture.title : "Unassigned") +
+    "<br> (" + formatTime(currentLecture.start) + " - " +
     formatTime(currentLecture.end) + ")";
 }
 
@@ -99,6 +130,7 @@ async function buildRoomMarkup(roomTitle) {
   const list = room.querySelector('.list');
 
   for (const d of data) {
+    if (d.title === "Unassigned" || d.title === "Overflow") continue;
     const slot = document.importNode(SLOT_TEMPLATE.content, true);
     const title = slot.querySelector('.title');
     title.innerHTML = d.title;

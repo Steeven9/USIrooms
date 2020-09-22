@@ -169,7 +169,7 @@ input[type="range"]::-moz-range-progress {
 
 /* Schedule */
 
-.schedule {
+.schedule, .warning {
   border: #00000033 solid 1px;
   border-radius: 6px;
   box-shadow: 0 1px 3px #0000001a;
@@ -229,11 +229,19 @@ input[type="range"]::-moz-range-progress {
 
 
   .room-free {
-    background-color: #3FE1B0;
+    background-color: #3fe1b0;
   }
 
   .room-free:hover {
     box-shadow: 0 4px 8px #b3ffe333;
+  }
+
+  .room-unassigned {
+    background-color: #fe8a4f;
+  }
+
+  .room-unassigned:hover {
+    box-shadow: 0 4px 8px #b3fe8a4f;
   }
 
   .room-in-use {
@@ -250,7 +258,7 @@ input[type="range"]::-moz-range-progress {
     box-shadow: 0 0 0 #00000000;
   }
 
-  .schedule {
+  .schedule, .warning {
     border: #384047 solid 1px;
     background-color: #2d3339;
     box-shadow: 0 0 0 #00000000;
