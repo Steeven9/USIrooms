@@ -115,8 +115,9 @@ function colorRoom(roomTitle, node, time = NOW /* QuantumLeap */) {
   block.className += isFree ? " room-free" :
     currentLecture.title === "Unassigned" ? " room-unassigned" : " room-in-use";
 
-  block.querySelector('p').innerHTML = isFree ? 'Free (overflow)' :
-    (currentLecture ? currentLecture.title : "Unassigned") +
+  const title = isFree ? "Free (overflow)" : currentLecture.title;
+
+  block.querySelector('p').innerHTML = title +
     "<br> (" + formatTime(currentLecture.start) + " - " +
     formatTime(currentLecture.end) + ")";
 }
