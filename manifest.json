@@ -1,8 +1,8 @@
 {
   "_modeline": " vim: set ts=2 sw=2 et tw=80:",
 
-  "short_name": "USI Rooms",
-  "name": "USI INF Rooms",
+  "short_name": "USIrooms",
+  "name": "USIrooms",
   "icons": [
     {
       "src": "./assets/images/icon-192.png",

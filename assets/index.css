@@ -26,14 +26,27 @@
   color: #212529;
 }
 
+body {
+  margin: 2rem 0;
+}
+
 h1 {
   text-align: center;
   width: 100%;
+  margin-top: 0;
 }
 
 h2 {
   text-align: center;
   width: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
 }
 
 /* Slider */
@@ -185,6 +198,11 @@ input[type="range"]::-moz-range-progress {
   font-weight: 800;
   text-align: start;
 }
+
+.list li {
+  margin-bottom: 5px;
+}
+
 
 /* Dark mode */
 

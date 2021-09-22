@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <!-- vim: set ts=2 sw=2 et tw=80: -->
-<html>
+<html lang="en-CH">
   <head>
-    <meta charset='utf-8'>
     <title>USI • Rooms availability</title>
-
+    
+    <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" href="assets/images/icon-64.png">
     <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="assets/index.css?v=3">
+    <link rel="stylesheet" href="assets/index.css?v=4">
   </head>
+
   <body>
-    <h1>USI INF room availability</h1>
+    <h1 class="center">USI INF room availability</h1>
+    <h3 class="center">Black building</h3>
 
     <div class="timepicker">
       <h2 id="timepreviewer">Loading...</h2>
@@ -91,12 +93,18 @@
     </div>
 
     <div class="warning">
-      <h3>Updated to latest Decanato rules about room usage according to
-      COVID-19 regulations.</h3> Rooms that are marked with "Free (overflow)"
-    (here in
-      green) can be used for unbooked activities (e.g. studying or working on
-      homework)
+      <h1>Covid-19 regulations</h1>
+      Always wear a mask when inside and try to maintain social distance.
+      Check <a href="https://www.usi.ch/en/feeds/13812" target="_blank">here</a> the
+      latest news and
+      <a href="https://www.desk.usi.ch/en/covid-19-protection-provisions" target="_blank">here</a>
+      the updated provisions.
     </div>
+
+    <footer>
+      &copy;2021 USIrooms - 
+      <a href="https://github.com/Steeven9/USIrooms" target="_blank">GitHub</a>
+    </footer>
 
     <script src='app.js?v=3'></script>
   </body>
