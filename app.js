@@ -4,8 +4,8 @@
 
 const URL = 'https://usirooms.maggioni.xyz/schedule.html?name=';
 const NOW = new Date();
-
 const timeTable = {};
+let ROOMS;
 
 function roomStatus(room, callback) {
   return new Promise((resolve, _) => {
@@ -68,7 +68,7 @@ function roomStatus(room, callback) {
   });
 }
 
-const ROOMS = [
+const ROOMS_SI = [
   'SI-003',
   'SI-004',
   'SI-006',
@@ -76,6 +76,12 @@ const ROOMS = [
   'SI-008',
   'SI-013',
   'SI-015',
+];
+
+const ROOMS_EAST = [
+  'D1.13',
+  'D1.14',
+  'D1.15',
 ];
 
 const ROOM_LIST = document.querySelector(".times");
@@ -180,6 +186,38 @@ function setupTimeMachine() {
     mins > slider.max ? slider.max : mins;
   setTimePreview(date);
 }
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+if (urlParams.has('east')) {
+  ROOMS = ROOMS_EAST;
+  document.querySelectorAll('.navLink').forEach((el) => el.classList.toggle('active'));
+
+  document.querySelector('.room-map').innerHTML = `
+    <div class="room room-small" id="D1.13">
+      <a href="#schedule-D1.13">
+        <h3>D1.13</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="D1.14">
+      <a href="#schedule-D1.14">
+        <h3>D1.14</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="D1.15">
+      <a href="#schedule-D1.15">
+        <h3>D1.15</h3>
+        <p>???</p>
+      </a>
+    </div>
+  `;
+} else {
+  ROOMS = ROOMS_SI;
+}
+
 
 // Thanks to Andrea Gallidabino and his mastery checks for this
 Promise.all(ROOMS.map(buildRoomMarkup))
