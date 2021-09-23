@@ -70,12 +70,12 @@ function roomStatus(room, callback) {
 
 const ROOMS = [
   'SI-003',
-  'SI-015',
   'SI-004',
   'SI-006',
-  'SI-013',
   'SI-007',
   'SI-008',
+  'SI-013',
+  'SI-015',
 ];
 
 const ROOM_LIST = document.querySelector(".times");
@@ -105,7 +105,6 @@ function colorRoom(roomTitle, node, time = NOW /* QuantumLeap */) {
   const currentLecture = data.filter(d => d.start < time && d.end > time)[0] || null;
   const isFree = !!currentLecture && !!currentLecture.title &&
     currentLecture.title === "Overflow";
-  console.log(roomTitle, isFree);
   const block = document.getElementById(roomTitle);
 
   block.className = block.className
@@ -149,7 +148,7 @@ async function buildRoomMarkup(roomTitle) {
     list.appendChild(document.importNode(FREE_SLOT_TEMPLATE.content, true));
   }
 
-  ROOM_LIST.appendChild(room);
+  return room;
 }
 
 function setTimePreview(date) {
@@ -183,6 +182,12 @@ function setupTimeMachine() {
 }
 
 // Thanks to Andrea Gallidabino and his mastery checks for this
-Promise.all(ROOMS.map(buildRoomMarkup)).catch(console.error);
+Promise.all(ROOMS.map(buildRoomMarkup))
+.then((rooms) => {
+  for (const room of rooms) {
+    ROOM_LIST.appendChild(room);
+  }
+})
+.catch(console.error);
 
 setupTimeMachine();
