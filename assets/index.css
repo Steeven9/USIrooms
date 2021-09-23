@@ -2,27 +2,27 @@
 /* vim: set ts=2 sw=2 et tw=80: */
 
 @font-face {
-  font-family: 'Inter';
-  font-style:  normal;
+  font-family: "Inter";
+  font-style: normal;
   font-weight: 400;
   font-display: swap;
   src: url("fonts/Inter-Regular.woff2") format("woff2"),
-  url("fonts/Inter-Regular.woff") format("woff");
+    url("fonts/Inter-Regular.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Inter';
-  font-style:  normal;
+  font-family: "Inter";
+  font-style: normal;
   font-weight: 800;
   font-display: swap;
   src: url("fonts/Inter-ExtraBold.woff2") format("woff2"),
-  url("fonts/Inter-ExtraBold.woff") format("woff");
+    url("fonts/Inter-ExtraBold.woff") format("woff");
 }
 
 /* Base */
 
 * {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: #212529;
 }
 
@@ -49,9 +49,18 @@ footer {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover,
+.active {
+  color: aquamarine;
+}
+
 /* Slider */
 
-input[type=range] {
+input[type="range"] {
   -webkit-appearance: none;
   border: 0;
   height: 28px;
@@ -147,7 +156,7 @@ input[type="range"]::-moz-range-progress {
 }
 
 .room-free {
-  background-color: #3FE1B0;
+  background-color: #3fe1b0;
 }
 
 .room-unassigned {
@@ -155,7 +164,7 @@ input[type="range"]::-moz-range-progress {
 }
 
 .room-in-use {
-  background-color: #FF505F;
+  background-color: #ff505f;
 }
 
 @media screen and (max-width: 830px) {
@@ -186,7 +195,8 @@ input[type="range"]::-moz-range-progress {
 
 /* Schedule */
 
-.schedule, .warning {
+.schedule,
+.warning {
   border: #00000033 solid 1px;
   border-radius: 6px;
   box-shadow: 0 1px 3px #0000001a;
@@ -203,10 +213,9 @@ input[type="range"]::-moz-range-progress {
   margin-bottom: 5px;
 }
 
-
 /* Dark mode */
 
-@media(prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   * {
     color: #f9f9fa;
   }
@@ -249,7 +258,6 @@ input[type="range"]::-moz-range-progress {
     transition: all 0.5s ease;
   }
 
-
   .room-free {
     background-color: #3fe1b0;
   }
@@ -280,7 +288,8 @@ input[type="range"]::-moz-range-progress {
     box-shadow: 0 0 0 #00000000;
   }
 
-  .schedule, .warning {
+  .schedule,
+  .warning {
     border: #384047 solid 1px;
     background-color: #2d3339;
     box-shadow: 0 0 0 #00000000;
