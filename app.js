@@ -53,7 +53,7 @@ function roomStatus(room, callback) {
       for (let i = 0; i <= parsed.length; i++) {
         const time = i == parsed.length ? end : parsed[i].start;
         if (time > s) {
-          holes.push({ title: "Unassigned", start: s, end: time });
+          holes.push({ title: "Free", start: s, end: time });
         }
         if (time != end) {
           s = parsed[i].end;
@@ -79,7 +79,14 @@ const ROOMS_SI = [
   "SI-015",
 ];
 
-const ROOMS_EAST = ["D1.13", "D1.14", "D1.15"];
+const ROOMS_EAST = [
+  "D1.13", 
+  "D1.14", 
+  "D1.15",
+  "C1.03",
+  "D0.02",
+  "D0.03"
+];
 
 const ROOM_LIST = document.querySelector(".times");
 const ROOM_TEMPLATE = document.getElementById("room");
@@ -109,7 +116,7 @@ function colorRoom(roomTitle, node, time = NOW /* QuantumLeap */) {
   const isFree =
     !!currentLecture &&
     !!currentLecture.title &&
-    currentLecture.title === "Overflow";
+    currentLecture.title === "Free";
   const block = document.getElementById(roomTitle);
 
   block.className = block.className
@@ -122,7 +129,7 @@ function colorRoom(roomTitle, node, time = NOW /* QuantumLeap */) {
     ? " room-unassigned"
     : " room-in-use";
 
-  const title = isFree ? "Free (overflow)" : currentLecture.title;
+  const title = isFree ? "Free" : currentLecture.title;
 
   block.querySelector("p").innerHTML =
     title +
@@ -142,7 +149,7 @@ async function buildRoomMarkup(roomTitle) {
   const list = room.querySelector(".list");
 
   for (const d of data) {
-    if (d.title === "Unassigned" || d.title === "Overflow") continue;
+    if (d.title === "Unassigned" || d.title === "Free") continue;
     const slot = document.importNode(SLOT_TEMPLATE.content, true);
     const title = slot.querySelector(".title");
     title.innerHTML = d.title;
@@ -156,7 +163,7 @@ async function buildRoomMarkup(roomTitle) {
   timeTable[roomTitle] = data;
   colorRoom(roomTitle, room);
 
-  if (data.length == 0) {
+  if (data.length == 1) {
     list.appendChild(document.importNode(FREE_SLOT_TEMPLATE.content, true));
   }
 
@@ -203,7 +210,7 @@ if (urlParams.has("east")) {
     .forEach((el) => el.classList.toggle("active"));
 
   document.querySelector(".room-map").innerHTML = `
-    <div class="room room-small" id="D1.13">
+    <div class="room room-big" id="D1.13">
       <a href="#schedule-D1.13">
         <h3>D1.13</h3>
         <p>???</p>
@@ -215,9 +222,27 @@ if (urlParams.has("east")) {
         <p>???</p>
       </a>
     </div>
-    <div class="room room-big" id="D1.15">
+    <div class="room room-small" id="D1.15">
       <a href="#schedule-D1.15">
         <h3>D1.15</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-big" id="C1.03">
+      <a href="#schedule-C1.03">
+        <h3>C1.03</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="D0.02">
+      <a href="#schedule-D0.02">
+        <h3>D0.02</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="D0.03">
+      <a href="#schedule-D0.03">
+        <h3>D0.03</h3>
         <p>???</p>
       </a>
     </div>
