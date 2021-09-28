@@ -2,7 +2,9 @@
 
 // Real code
 
-const URL = "https://usirooms.maggioni.xyz/schedule.html?name=";
+// Simple proxy to https://aule.usi.ch/aule/View.aspx?name=
+const URL = "https://soulsbros.ch/steeven/aule.php?name=";
+
 const NOW = new Date();
 const timeTable = {};
 let ROOMS;
