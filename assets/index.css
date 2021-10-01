@@ -28,6 +28,7 @@
 
 body {
   margin: 2rem 0;
+  line-height: 1.5;
 }
 
 h1 {
@@ -39,10 +40,19 @@ h1 {
 h2 {
   text-align: center;
   width: 100%;
+  margin-top: 0;
 }
 
 .center {
   text-align: center;
+}
+
+.marginTop {
+  margin-top: 50px;
+}
+
+.important {
+  border-color: red !important;
 }
 
 footer {
@@ -204,9 +214,13 @@ input[type="range"]::-moz-range-progress {
   margin: 2rem 5vw;
 }
 
-.schedule h2 {
+.room-title {
   font-weight: 800;
   text-align: start;
+}
+
+.list {
+  margin-bottom: 30px;
 }
 
 .list li {
