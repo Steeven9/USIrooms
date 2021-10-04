@@ -214,7 +214,7 @@ if (urlParams.has("east")) {
     .forEach((el) => el.classList.toggle("active"));
 
   document.querySelector(".room-map").innerHTML = `
-    <div class="room room-big" id="D1.13">
+    <div class="room room-small" id="D1.13">
       <a href="#schedule-D1.13">
         <h3>D1.13</h3>
         <p>???</p>
@@ -226,13 +226,13 @@ if (urlParams.has("east")) {
         <p>???</p>
       </a>
     </div>
-    <div class="room room-small" id="D1.15">
+    <div class="room room-big" id="D1.15">
       <a href="#schedule-D1.15">
         <h3>D1.15</h3>
         <p>???</p>
       </a>
     </div>
-    <div class="room room-big" id="C1.03">
+    <div class="room room-small" id="C1.03">
       <a href="#schedule-C1.03">
         <h3>C1.03</h3>
         <p>???</p>
@@ -244,7 +244,7 @@ if (urlParams.has("east")) {
         <p>???</p>
       </a>
     </div>
-    <div class="room room-small" id="C1.05">
+    <div class="room room-big" id="C1.05">
       <a href="#schedule-C1.05">
         <h3>C1.05</h3>
         <p>???</p>
