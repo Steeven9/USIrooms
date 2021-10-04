@@ -86,6 +86,8 @@ const ROOMS_EAST = [
   "D1.14", 
   "D1.15",
   "C1.03",
+  "C1.04",
+  "C1.05",
   "D0.02",
   "D0.03"
 ];
@@ -233,6 +235,18 @@ if (urlParams.has("east")) {
     <div class="room room-big" id="C1.03">
       <a href="#schedule-C1.03">
         <h3>C1.03</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="C1.04">
+      <a href="#schedule-C1.04">
+        <h3>C1.04</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="C1.05">
+      <a href="#schedule-C1.05">
+        <h3>C1.05</h3>
         <p>???</p>
       </a>
     </div>

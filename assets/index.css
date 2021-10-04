@@ -166,15 +166,15 @@ input[type="range"]::-moz-range-progress {
 }
 
 .room-free {
-  background-color: #3fe1b0;
+  background-color: #49bb96;
 }
 
 .room-unassigned {
-  background-color: #fe8a4f;
+  background-color: #d77340;
 }
 
 .room-in-use {
-  background-color: #ff505f;
+  background-color: #d14c56;
 }
 
 @media screen and (max-width: 830px) {
@@ -273,27 +273,15 @@ input[type="range"]::-moz-range-progress {
   }
 
   .room-free {
-    background-color: #3fe1b0;
+    background-color: #49bb96;
   }
-
-  .room-free:hover {
-    box-shadow: 0 4px 8px #b3ffe333;
-  }
-
+  
   .room-unassigned {
-    background-color: #fe8a4f;
+    background-color: #d77340;
   }
-
-  .room-unassigned:hover {
-    box-shadow: 0 4px 8px #b3fe8a4f;
-  }
-
+  
   .room-in-use {
-    background-color: #ff6a75;
-  }
-
-  .room-in-use:hover {
-    box-shadow: 0 4px 8px #ff6a7533;
+    background-color: #d14c56;
   }
 
   .timepicker {
