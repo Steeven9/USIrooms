@@ -3,7 +3,7 @@
 // Real code
 
 // Simple proxy to https://aule.usi.ch/aule/View.aspx?name=
-const URL = "https://soulsbros.ch/steeven/aule.php?name=";
+const URL = "https://soulsbros.ch/proxy/aule.php?name=";
 
 const NOW = new Date();
 const timeTable = {};
@@ -82,14 +82,14 @@ const ROOMS_SI = [
 ];
 
 const ROOMS_EAST = [
-  "D1.13", 
-  "D1.14", 
+  "D1.13",
+  "D1.14",
   "D1.15",
   "C1.03",
   "C1.04",
   "C1.05",
   "D0.02",
-  "D0.03"
+  "D0.03",
 ];
 
 const ROOM_LIST = document.querySelector(".times");
@@ -185,16 +185,12 @@ function setupTimeMachine() {
   slider.max = 19 * 60 + 30;
 
   slider.addEventListener("input", (e) => {
+    clearInterval(refreshInterval);
     const date = new Date();
     date.setHours(0);
     date.setMinutes(slider.value);
-    const node = getRoomNode();
 
-    setTimePreview(date);
-
-    ROOMS.forEach((roomTitle) => {
-      colorRoom(roomTitle, node, date);
-    });
+    setSliderTime(date);
   });
 
   const date = new Date();
@@ -202,6 +198,17 @@ function setupTimeMachine() {
   slider.value =
     mins < slider.min ? slider.min : mins > slider.max ? slider.max : mins;
   setTimePreview(date);
+}
+
+function setSliderTime(date) {
+  console.log("update", date)
+  const node = getRoomNode();
+
+  setTimePreview(date);
+
+  ROOMS.forEach((roomTitle) => {
+    colorRoom(roomTitle, node, date);
+  });
 }
 
 const queryString = window.location.search;
@@ -277,3 +284,9 @@ Promise.all(ROOMS.map(buildRoomMarkup))
   .catch(console.error);
 
 setupTimeMachine();
+
+let refreshInterval;
+setTimeout(() => {
+  setSliderTime(new Date());
+  refreshInterval = setInterval(() => setSliderTime(new Date()), 60000);
+}, (60 - new Date().getSeconds()) * 1000);
