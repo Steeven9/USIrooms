@@ -201,7 +201,6 @@ function setupTimeMachine() {
 }
 
 function setSliderTime(date) {
-  console.log("update", date)
   const node = getRoomNode();
 
   setTimePreview(date);
