@@ -1,6 +1,6 @@
 // vim: set ts=2 sw=2 et tw=80:
 
-// Real code
+import rooms from "./rooms"
 
 // Simple proxy to https://aule.usi.ch/aule/View.aspx?name=
 const URL = "https://soulsbros.ch/proxy/aule.php?name=";
@@ -70,27 +70,6 @@ function roomStatus(room, callback) {
     xhr.send();
   });
 }
-
-const ROOMS_SI = [
-  "SI-003",
-  "SI-004",
-  "SI-006",
-  "SI-007",
-  "SI-008",
-  "SI-013",
-  "SI-015",
-];
-
-const ROOMS_EAST = [
-  "D1.13",
-  "D1.14",
-  "D1.15",
-  "C1.03",
-  "C1.04",
-  "C1.05",
-  "D0.02",
-  "D0.03",
-];
 
 const ROOM_LIST = document.querySelector(".times");
 const ROOM_TEMPLATE = document.getElementById("room");
@@ -210,14 +189,19 @@ function setSliderTime(date) {
   });
 }
 
+function changeActiveLink(newLink) {
+  document
+    .querySelectorAll(".navLink")
+    .forEach((el) => el.classList.remove("active"));
+  document.querySelector(`#${newLink}`).classList.add("active");
+}
+
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
 if (urlParams.has("east")) {
-  ROOMS = ROOMS_EAST;
-  document
-    .querySelectorAll(".navLink")
-    .forEach((el) => el.classList.toggle("active"));
+  ROOMS = rooms.east;
+  changeActiveLink("east");
 
   document.querySelector(".room-map").innerHTML = `
     <div class="room room-small" id="D1.13">
@@ -269,8 +253,94 @@ if (urlParams.has("east")) {
       </a>
     </div>
   `;
+} else if (urlParams.has("red")) {
+  ROOMS = rooms.red;
+  changeActiveLink("red");
+
+  document.querySelector(".room-map").innerHTML = `
+    <div class="room room-small" id="A11">
+      <a href="#schedule-A11">
+        <h3>A11</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="A12">
+      <a href="#schedule-A12">
+        <h3>A12</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="A13">
+      <a href="#schedule-A13">
+        <h3>A13</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="A14">
+      <a href="#schedule-A14">
+        <h3>A14</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="A21">
+      <a href="#schedule-A21">
+        <h3>A21</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="A22">
+      <a href="#schedule-A22">
+        <h3>A22</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="A23">
+      <a href="#schedule-A23">
+        <h3>A23</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="A24">
+      <a href="#schedule-A24">
+        <h3>A24</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="A31">
+      <a href="#schedule-A31">
+        <h3>A31</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="A32">
+      <a href="#schedule-A32">
+        <h3>A32</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="A33">
+      <a href="#schedule-A33">
+        <h3>A33</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="A34">
+      <a href="#schedule-A34">
+        <h3>A34</h3>
+        <p>???</p>
+      </a>
+    </div>
+  `;
+} else if (urlParams.has("main")) {
+  ROOMS = rooms.main;
+  changeActiveLink("main");
+
+  document.querySelector(".room-map").innerHTML = `
+    Coming soon
+  `;
 } else {
-  ROOMS = ROOMS_SI;
+  ROOMS = rooms.black;
+  changeActiveLink("black");
 }
 
 // Thanks to Andrea Gallidabino and his mastery checks for this
