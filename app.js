@@ -1,6 +1,6 @@
 // vim: set ts=2 sw=2 et tw=80:
 
-import rooms from "./rooms"
+import { roomsData, roomsMarkup } from "./rooms";
 
 // Simple proxy to https://aule.usi.ch/aule/View.aspx?name=
 const URL = "https://soulsbros.ch/proxy/aule.php?name=";
@@ -198,150 +198,11 @@ function changeActiveLink(newLink) {
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
+const building = urlParams.get("b") || "east";
 
-if (urlParams.has("east")) {
-  ROOMS = rooms.east;
-  changeActiveLink("east");
-
-  document.querySelector(".room-map").innerHTML = `
-    <div class="room room-small" id="D1.13">
-      <a href="#schedule-D1.13">
-        <h3>D1.13</h3>
-        <p>???</p>
-      </a>
-    </div>
-    <div class="room room-small" id="D1.14">
-      <a href="#schedule-D1.14">
-        <h3>D1.14</h3>
-        <p>???</p>
-      </a>
-    </div>
-    <div class="room room-big" id="D1.15">
-      <a href="#schedule-D1.15">
-        <h3>D1.15</h3>
-        <p>???</p>
-      </a>
-    </div>
-    <div class="room room-small" id="C1.03">
-      <a href="#schedule-C1.03">
-        <h3>C1.03</h3>
-        <p>???</p>
-      </a>
-    </div>
-    <div class="room room-small" id="C1.04">
-      <a href="#schedule-C1.04">
-        <h3>C1.04</h3>
-        <p>???</p>
-      </a>
-    </div>
-    <div class="room room-big" id="C1.05">
-      <a href="#schedule-C1.05">
-        <h3>C1.05</h3>
-        <p>???</p>
-      </a>
-    </div>
-    <div class="room room-small" id="D0.02">
-      <a href="#schedule-D0.02">
-        <h3>D0.02</h3>
-        <p>???</p>
-      </a>
-    </div>
-    <div class="room room-small" id="D0.03">
-      <a href="#schedule-D0.03">
-        <h3>D0.03</h3>
-        <p>???</p>
-      </a>
-    </div>
-  `;
-} else if (urlParams.has("red")) {
-  ROOMS = rooms.red;
-  changeActiveLink("red");
-
-  document.querySelector(".room-map").innerHTML = `
-    <div class="room room-small" id="A11">
-      <a href="#schedule-A11">
-        <h3>A11</h3>
-        <p>???</p>
-      </a>
-    </div>
-    <div class="room room-small" id="A12">
-      <a href="#schedule-A12">
-        <h3>A12</h3>
-        <p>???</p>
-      </a>
-    </div>
-    <div class="room room-small" id="A13">
-      <a href="#schedule-A13">
-        <h3>A13</h3>
-        <p>???</p>
-      </a>
-    </div>
-    <div class="room room-small" id="A14">
-      <a href="#schedule-A14">
-        <h3>A14</h3>
-        <p>???</p>
-      </a>
-    </div>
-    <div class="room room-small" id="A21">
-      <a href="#schedule-A21">
-        <h3>A21</h3>
-        <p>???</p>
-      </a>
-    </div>
-    <div class="room room-small" id="A22">
-      <a href="#schedule-A22">
-        <h3>A22</h3>
-        <p>???</p>
-      </a>
-    </div>
-    <div class="room room-small" id="A23">
-      <a href="#schedule-A23">
-        <h3>A23</h3>
-        <p>???</p>
-      </a>
-    </div>
-    <div class="room room-small" id="A24">
-      <a href="#schedule-A24">
-        <h3>A24</h3>
-        <p>???</p>
-      </a>
-    </div>
-    <div class="room room-small" id="A31">
-      <a href="#schedule-A31">
-        <h3>A31</h3>
-        <p>???</p>
-      </a>
-    </div>
-    <div class="room room-small" id="A32">
-      <a href="#schedule-A32">
-        <h3>A32</h3>
-        <p>???</p>
-      </a>
-    </div>
-    <div class="room room-small" id="A33">
-      <a href="#schedule-A33">
-        <h3>A33</h3>
-        <p>???</p>
-      </a>
-    </div>
-    <div class="room room-small" id="A34">
-      <a href="#schedule-A34">
-        <h3>A34</h3>
-        <p>???</p>
-      </a>
-    </div>
-  `;
-} else if (urlParams.has("main")) {
-  ROOMS = rooms.main;
-  changeActiveLink("main");
-
-  document.querySelector(".room-map").innerHTML = `
-    Coming soon
-  `;
-} else {
-  ROOMS = rooms.black;
-  changeActiveLink("black");
-}
+ROOMS = roomsData[building];
+changeActiveLink(building);
+document.querySelector(".room-map").innerHTML = roomsMarkup[building];
 
 // Thanks to Andrea Gallidabino and his mastery checks for this
 Promise.all(ROOMS.map(buildRoomMarkup))
