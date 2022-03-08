@@ -2,7 +2,7 @@
 
 import { roomsData, roomsMarkup } from "./rooms";
 
-// Simple proxy to https://aule.usi.ch/aule/View.aspx?name=
+// See https://gist.github.com/Steeven9/5848328435d8018361a12d63d7d6bb54
 const URL = "https://soulsbros.ch/proxy/aule.php?name=";
 
 const NOW = new Date();
