@@ -24,7 +24,7 @@ const roomsData = {
     "A33",
     "A34",
   ],
-  main: [],
+  main: ["250", "251", "253", "254", "354", "355"],
 };
 
 const roomsMarkup = {
@@ -190,7 +190,42 @@ const roomsMarkup = {
         <p>???</p>
       </a>
     </div>`,
-  main: `Coming soon`,
+  main: `<div class="room room-small" id="250">
+      <a href="#schedule-250">
+        <h3>250</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="251">
+      <a href="#schedule-251">
+        <h3>251</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="253">
+      <a href="#schedule-253">
+        <h3>253</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="254">
+      <a href="#schedule-254">
+        <h3>254</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="354">
+      <a href="#schedule-354">
+        <h3>354</h3>
+        <p>???</p>
+      </a>
+    </div>
+    <div class="room room-small" id="355">
+      <a href="#schedule-355">
+        <h3>355</h3>
+        <p>???</p>
+      </a>
+    </div>`,
 };
 
 export { roomsData, roomsMarkup };

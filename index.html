@@ -3,59 +3,61 @@
 <html lang="en-CH">
   <head>
     <title>USI • Rooms availability</title>
-    
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="USI rooms availability">
 
-    <meta property="og:site_name" content="USIrooms">			
-    <meta property="og:description" content="USI rooms availability">
-    <meta property="og:title" content="USIrooms">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://usirooms.xyz">
-    <meta property="og:image" content="https://usirooms.xyz/assets/images/android-chrome-512x512.png">
-    
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:description" content="USI rooms availability">
-    <meta name="twitter:title" content="USIrooms">
-    <meta property="twitter:url" content="https://usirooms.xyz">
-    <meta name="twitter:image" content="https://usirooms.xyz/assets/images/android-chrome-512x512.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="USI rooms availability" />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
-    <link rel="manifest" href="assets/images/site.webmanifest">
-    <link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
-    <meta name="msapplication-TileColor" content="#2b5797">
-    <meta name="msapplication-config" content="assets/images/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
+    <meta property="og:site_name" content="USIrooms" />
+    <meta property="og:description" content="USI rooms availability" />
+    <meta property="og:title" content="USIrooms" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://usirooms.xyz" />
+    <meta property="og:image" content="https://usirooms.xyz/assets/images/android-chrome-512x512.png" />
 
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="assets/index.css?v=7">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="USI rooms availability" />
+    <meta name="twitter:title" content="USIrooms" />
+    <meta property="twitter:url" content="https://usirooms.xyz" />
+    <meta name="twitter:image" content="https://usirooms.xyz/assets/images/android-chrome-512x512.png" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png" />
+    <link rel="manifest" href="assets/images/site.webmanifest" />
+    <link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#2b5797" />
+    <meta name="msapplication-config" content="assets/images/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="assets/index.css?v=7" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3DG26HH904"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-3DG26HH904');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-3DG26HH904");
     </script>
   </head>
 
   <body>
     <h1 class="center">USI rooms availability</h1>
     <div class="center">
-      <a href="?b=black" class="navLink" id="black">Black building</a> - 
-      <a href="/" class="navLink active" id="east">East campus</a> - 
-      <!-- <a href="?b=main" class="navLink" id="main">Main building</a> - -->
+      <a href="?b=black" class="navLink" id="black">Black building</a> -
+      <a href="/" class="navLink active" id="east">East campus</a> -
+      <a href="?b=main" class="navLink" id="main">Main building</a> -
       <a href="?b=red" class="navLink" id="red">Red building</a>
     </div>
 
     <div class="timepicker">
       <h2 id="timepreviewer">Loading...</h2>
-      <input type="range" id="timemachine"/>
+      <input type="range" id="timemachine" />
     </div>
 
     <div class="room-map"></div>
@@ -81,9 +83,9 @@
       </template>
 
       <div class="marginTop">
-        Free rooms can be booked by contacting respectively the dean's office of
-        the faculty of informatics for the east campus or
-        gestione-aule.lu(at)usi.ch for the other buildings.
+        Free rooms can be booked by contacting respectively
+        decanato.inf(at)usi.ch for the east campus or gestione-aule.lu(at)usi.ch
+        for the other buildings.
       </div>
     </div>
 
@@ -114,6 +116,6 @@
       </a>
     </footer>
 
-    <script type="module" src="app.js?v=10"></script>
+    <script type="module" src="app.js?v=11"></script>
   </body>
 </html>

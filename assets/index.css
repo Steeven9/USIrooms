@@ -275,11 +275,11 @@ input[type="range"]::-moz-range-progress {
   .room-free {
     background-color: #49bb96;
   }
-  
+
   .room-unassigned {
     background-color: #d77340;
   }
-  
+
   .room-in-use {
     background-color: #d14c56;
   }
