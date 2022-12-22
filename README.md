@@ -1,6 +1,6 @@
 # USIrooms
 
-Simple tool to check the availability of various rooms at USI, Lugano
+Simple tool to check the availability of various rooms at USI, Lugano.
 
 ## Disclaimer
 
@@ -10,4 +10,4 @@ offer any correctness nor availability guarantees.
 
 ## Contributing
 
-You know the drill, be the pull request you want to see in the world
+You know the drill, be the pull request you want to see in the world!
