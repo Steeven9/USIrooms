@@ -170,14 +170,14 @@ async function buildRoomMarkup(roomTitle) {
     link.href += `&body=Hi, I'd like to book the room ${roomTitle} in the ${formatBuilding(
       building
     )} `;
-    link.href += ` for the <INSERT DATE> from <INSERT TIME> to <INSERT TIME>. `
+    link.href += ` for the <INSERT DATE> from <INSERT TIME> to <INSERT TIME>. `;
     link.href += `%0D%0AThank you! %0D%0A%0D%0ABest regards,%0D%0A<INSERT NAME>`;
   } else {
     link.href = `${getEmail(building)}?subject=Riservazione aula ${roomTitle}`;
     link.href += `&body=Salve, vorrei riservare la stanza ${roomTitle} nel ${formatBuilding(
       building
     )} `;
-    link.href += ` per il <INSERIRE GIORNO> dalle <INSERIRE ORA> alle <INSERIRE ORA>. `
+    link.href += ` per il <INSERIRE GIORNO> dalle <INSERIRE ORA> alle <INSERIRE ORA>. `;
     link.href += `%0D%0AGrazie! %0D%0A%0D%0ACordiali saluti,%0D%0A<INSERIRE NOME>`;
   }
 
