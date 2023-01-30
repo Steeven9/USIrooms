@@ -32,7 +32,7 @@
     <meta name="theme-color" content="#ffffff" />
 
     <link rel="manifest" href="manifest.json" />
-    <link rel="stylesheet" href="assets/index.css?v=7" />
+    <link rel="stylesheet" href="assets/index.css?v=8" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3DG26HH904"></script>
@@ -67,7 +67,10 @@
       <section class="times"></section>
 
       <template id="room">
-        <h2 class="room-title"></h2>
+        <div style="display: flex;">
+          <h2 class="room-title"></h2>
+          <a class="room-booking-link" style="min-width: fit-content;">Book now</a>
+        </div>
         <ul class="list"></ul>
       </template>
 
@@ -83,21 +86,20 @@
       </template>
 
       <div class="marginTop">
-        Free rooms can be booked by contacting respectively
-        decanato.inf(at)usi.ch for the east campus or gestione-aule.lu(at)usi.ch
-        for the other buildings.
+        Free rooms can be booked by clicking on their respective "Book now" button and completing
+        the missing fields in the email.
       </div>
     </div>
 
     <div class="warning center">
       <h1>Disclaimer</h1>
-      This website was created by some students as an unofficial project and is
+      This website was created and is maintained by some students as an unofficial project and is
       not affiliated in any way with Università della Svizzera italiana.
       USIrooms does not offer any correctness nor availability guarantees.
     </div>
 
     <footer>
-      &copy;2022 USIrooms -
+      &copy;2023 USIrooms -
       <a
         href="https://github.com/Steeven9/USIrooms"
         target="_blank"
@@ -107,6 +109,6 @@
       </a>
     </footer>
 
-    <script type="module" src="app.js?v=11"></script>
+    <script type="module" src="app.js?v=12"></script>
   </body>
 </html>

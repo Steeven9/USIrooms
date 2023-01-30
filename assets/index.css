@@ -221,6 +221,7 @@ input[type="range"]::-moz-range-progress {
 
 .list {
   margin-bottom: 30px;
+  list-style: none;
 }
 
 .list li {

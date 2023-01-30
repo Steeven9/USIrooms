@@ -88,6 +88,40 @@ function formatTime(date) {
   return twoDigits(date.getHours()) + ":" + twoDigits(date.getMinutes());
 }
 
+function formatBuilding(building) {
+  switch (building) {
+    case "east":
+      return "east campus";
+    case "black":
+    case "red":
+    case "main":
+      return building + " building";
+    default:
+      throw new Error("Unknown building type " + building);
+  }
+}
+
+function getEmail(building) {
+  // obfuscation magic
+  if (building === "east") {
+    const ML = '>=dnh:ru@"cs.eil t/mfoa<';
+    const MI = "CF>?AE52=:F3FAE<>3D87;><:4";
+    let OT = "";
+    for (let j = 0; j < MI.length; j++) {
+      OT += ML.charAt(MI.charCodeAt(j) - 48);
+    }
+    return OT;
+  } else {
+    const ML = 'c>=:ftulsn@ .ehor-mi/"ga<';
+    const MI = "BGC75?3F=85C?9=AG67=<76:68C<0>";
+    let OT = "";
+    for (let j = 0; j < MI.length; j++) {
+      OT += ML.charAt(MI.charCodeAt(j) - 48);
+    }
+    return OT;
+  }
+}
+
 function colorRoom(roomTitle, node, time = NOW /* QuantumLeap */) {
   const data = timeTable[roomTitle];
   if (data == undefined) {
@@ -130,6 +164,22 @@ async function buildRoomMarkup(roomTitle) {
   title.innerHTML = roomTitle;
   title.id = "schedule-" + roomTitle;
   const list = room.querySelector(".list");
+  const link = room.querySelector(".room-booking-link");
+  if (building === "east") {
+    link.href = `${getEmail(building)}?subject=Booking room ${roomTitle}`;
+    link.href += `&body=Hi, I'd like to book the room ${roomTitle} in the ${formatBuilding(
+      building
+    )} `;
+    link.href += ` for the <INSERT DATE> from <INSERT TIME> to <INSERT TIME>. `
+    link.href += `%0D%0AThank you! %0D%0A%0D%0ABest regards,%0D%0A<INSERT NAME>`;
+  } else {
+    link.href = `${getEmail(building)}?subject=Riservazione aula ${roomTitle}`;
+    link.href += `&body=Salve, vorrei riservare la stanza ${roomTitle} nel ${formatBuilding(
+      building
+    )} `;
+    link.href += ` per il <INSERIRE GIORNO> dalle <INSERIRE ORA> alle <INSERIRE ORA>. `
+    link.href += `%0D%0AGrazie! %0D%0A%0D%0ACordiali saluti,%0D%0A<INSERIRE NOME>`;
+  }
 
   for (const d of data) {
     if (d.title === "Unassigned" || d.title === "Free") continue;
