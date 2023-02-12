@@ -177,6 +177,14 @@ input[type="range"]::-moz-range-progress {
   background-color: #d14c56;
 }
 
+.room-booking-link {
+  min-width: fit-content;
+  border: 1px solid white;
+  height: fit-content;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 @media screen and (max-width: 830px) {
   .room {
     padding: 0.2rem;
