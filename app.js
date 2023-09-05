@@ -1,6 +1,6 @@
 // vim: set ts=2 sw=2 et tw=80:
 
-import { roomsData, roomsMarkup } from "./rooms";
+import { roomsData, roomsMarkup } from "./rooms.js";
 
 // See https://gist.github.com/Steeven9/5848328435d8018361a12d63d7d6bb54
 const URL = "https://soulsbros.ch/proxy/aule.php?name=";
