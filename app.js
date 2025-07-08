@@ -91,6 +91,7 @@ function formatTime(date) {
 function formatBuilding(building) {
   switch (building) {
     case "east":
+    case "east2":
       return "east campus";
     case "black":
     case "red":
@@ -243,7 +244,10 @@ function changeActiveLink(newLink) {
   document
     .querySelectorAll(".navLink")
     .forEach((el) => el.classList.remove("active"));
-  document.querySelector(`#${newLink}`).classList.add("active");
+  const buildingLabel = document.querySelector(`#${newLink}`);
+  if (buildingLabel) {
+    buildingLabel.classList.add("active");
+  }
 }
 
 const queryString = window.location.search;
