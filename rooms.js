@@ -1,14 +1,14 @@
 const roomsData = {
   black: ["SI-003", "SI-004", "SI-006", "SI-007", "SI-008", "SI-013", "SI-015"],
   east: [
-    "D1.13",
-    "D1.14",
-    "D1.15",
     "C1.03",
     "C1.04",
     "C1.05",
     "D0.02",
     "D0.03",
+    "D1.13",
+    "D1.14",
+    "D1.15",
   ],
   east2: [
     "D2.19",
@@ -56,7 +56,7 @@ const roomsMarkup = {
   ),
   east: makeRoomMarkup(
     roomsData.east,
-    ["small", "small", "small", "small", "big", "big", "big", "small", "small"],
+    ["big", "big", "big", "big", "small", "small", "small", "small"],
   ),
   east2: makeRoomMarkup(
     roomsData.east2,
