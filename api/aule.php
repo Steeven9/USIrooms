@@ -79,7 +79,12 @@ $arrContextOptions = array(
     ),
 );
 
-$url = "https://aule.usi.ch/aule/View.aspx?guid=" . $guids[$name];
+// Special case for D0.10 - use name-based URL
+if ($name === "D0.10") {
+    $url = "https://aule.usi.ch/aule/View.aspx?name=D0.10";
+} else {
+    $url = "https://aule.usi.ch/aule/View.aspx?guid=" . $guids[$name];
+}
 
 set_error_handler(function () {
     http_response_code(500);
