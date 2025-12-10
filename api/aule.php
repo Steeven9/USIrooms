@@ -10,18 +10,18 @@ if (isset($_GET['name']) && strlen($_GET['name']) > 0) {
 
 $guids = array(
     // red building
-    "A11" => "3f915d4c-4257-41a6-962d-7f3104f4811b",
-    "A12" => "c56501d5-ed56-4e21-9776-b21079f86184",
-    "A13" => "ae6e0982-0592-4e00-a8a2-f328ace22a3b",
-    "A14" => "7cc2dd7e-4279-4088-984e-55d11f4ec1d4",
-    "A21" => "17010043-e180-40fa-872e-0ea08c26fa37",
-    "A22" => "5326a5a2-3fcd-4c60-8cf2-d89e4b42d8ed",
-    "A23" => "45a3be36-8d8b-4cd6-8a93-807035ecd445",
-    "A24" => "3ac722a5-5567-4a68-ac65-0cc12bb6430b",
-    "A31" => "11a4a358-1074-4858-bad7-c6dcf5d00059",
-    "A32" => "258c1e34-0846-4944-a8ab-02f6c5157c82",
-    "A33" => "a1f63d4f-424f-4cec-b101-94bf4a6ddf56",
-    "A34" => "131942e0-349d-44e8-8222-c8749fc2913e",
+    "A-11" => "3f915d4c-4257-41a6-962d-7f3104f4811b",
+    "A-12" => "c56501d5-ed56-4e21-9776-b21079f86184",
+    "A-13" => "ae6e0982-0592-4e00-a8a2-f328ace22a3b",
+    "A-14" => "7cc2dd7e-4279-4088-984e-55d11f4ec1d4",
+    "A-21" => "17010043-e180-40fa-872e-0ea08c26fa37",
+    "A-22" => "5326a5a2-3fcd-4c60-8cf2-d89e4b42d8ed",
+    "A-23" => "45a3be36-8d8b-4cd6-8a93-807035ecd445",
+    "A-24" => "3ac722a5-5567-4a68-ac65-0cc12bb6430b",
+    "A-31" => "11a4a358-1074-4858-bad7-c6dcf5d00059",
+    "A-32" => "258c1e34-0846-4944-a8ab-02f6c5157c82",
+    "A-33" => "a1f63d4f-424f-4cec-b101-94bf4a6ddf56",
+    "A-34" => "131942e0-349d-44e8-8222-c8749fc2913e",
     // black building
     "SI-003" => "a13e6459-0015-4672-b1ee-cfc044e1d5f5",
     "SI-004" => "db60d2c3-fbdd-4caf-8e2a-e7aceb165667",
@@ -79,12 +79,8 @@ $arrContextOptions = array(
     ),
 );
 
-// Special case for D0.10 - use name-based URL
-if ($name === "D0.10") {
-    $url = "https://aule.usi.ch/aule/View.aspx?name=D0.10";
-} else {
-    $url = "https://aule.usi.ch/aule/View.aspx?guid=" . $guids[$name];
-}
+// Use name-based URL for all rooms
+$url = "https://aule.usi.ch/aule/View.aspx?name=" . $name;
 
 set_error_handler(function () {
     http_response_code(500);
