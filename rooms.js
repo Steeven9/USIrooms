@@ -6,6 +6,7 @@ const roomsData = {
     "C1.05",
     "D0.02",
     "D0.03",
+    "D0.10",
     "D1.13",
     "D1.14",
     "D1.15",
@@ -56,7 +57,7 @@ const roomsMarkup = {
   ),
   east: makeRoomMarkup(
     roomsData.east,
-    ["big", "big", "big", "big", "small", "small", "small", "small"],
+    ["big", "big", "big", "small", "small", "small", "small", "small", "small"],
   ),
   east2: makeRoomMarkup(
     roomsData.east2,
