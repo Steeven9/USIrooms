@@ -71,14 +71,6 @@ $guids = array(
     "TERR" => "a9795732-3eb6-4b5f-a212-a0accad01002"
 );
 
-// UNSAFE!
-$arrContextOptions = array(
-    "ssl" => array(
-        "verify_peer" => false,
-        "verify_peer_name" => false,
-    ),
-);
-
 // Use name-based URL for all rooms
 $url = "https://aule.usi.ch/aule/View.aspx?name=" . $name;
 
@@ -86,15 +78,17 @@ set_error_handler(function () {
     http_response_code(500);
     die('Error 500: network problem');
 });
+
 $result = file_get_contents(
     $url,
-    false,
-    stream_context_create($arrContextOptions)
+    false
 );
+
 if (substr($result, 0, 13) == "non abilitato") {
     http_response_code(404);
     die('Error 404: given room doesn\'t exist');
 } else {
     echo $result;
 }
+
 restore_error_handler();

@@ -34,15 +34,23 @@
     <link rel="manifest" href="manifest.json" />
     <link rel="stylesheet" href="assets/index.css?v=9" />
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3DG26HH904"></script>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script
+      async
+      src="https://insights.soulsbros.ch/js/pa-KaAS7JROfRaw9no6AjbzL.js"
+    ></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-3DG26HH904");
+      ((window.plausible =
+        window.plausible ||
+        function () {
+          (plausible.q = plausible.q || []).push(arguments);
+        }),
+        (plausible.init =
+          plausible.init ||
+          function (i) {
+            plausible.o = i || {};
+          }));
+      plausible.init({ hashBasedRouting: true });
     </script>
   </head>
 
@@ -55,6 +63,17 @@
       <a href="?b=red" class="navLink" id="red">Red building</a>
     </div>
 
+    <div class="timepicker" style="border: 1px solid red">
+      We need your feedback: complete this
+      <a
+        href="https://usi.qualtrics.com/jfe/form/SV_00WEu4RzSYDLL5Y"
+        target="_blank"
+        style="display: contents; text-decoration: underline; color: #7793ff"
+        >very short survey</a
+      >
+      to shape the next version of USIRooms!
+    </div>
+
     <div class="timepicker">
       <h2 id="timepreviewer">Loading...</h2>
       <input type="range" id="timemachine" />
@@ -64,6 +83,12 @@
 
     <div class="schedule">
       <h1>Schedule for today</h1>
+
+      <div style="margin-bottom: 10px">
+        Free rooms can be booked by clicking on their respective "Book now" button and completing
+        the missing fields in the email.
+      </div>
+
       <section class="times"></section>
 
       <template id="room">
@@ -84,11 +109,6 @@
           (<span class="start"></span>-<span class="end"></span>)
         </li>
       </template>
-
-      <div class="marginTop">
-        Free rooms can be booked by clicking on their respective "Book now" button and completing
-        the missing fields in the email.
-      </div>
     </div>
 
     <div class="warning center">
@@ -99,14 +119,13 @@
     </div>
 
     <footer>
-      &copy;2026 USIrooms -
+      <span style="vertical-align: middle">&copy;2026 USIrooms</span>
       <a
         href="https://github.com/Steeven9/USIrooms"
         target="_blank"
-        rel="noopener"
-      >
-        GitHub
-      </a>
+        style="vertical-align: middle; margin-left: 6px"
+        ><img src="/assets/images/icon_github_white.png" width="32px" alt="GitHub logo"
+      /></a>
     </footer>
 
     <script type="module" src="app.js?v=13"></script>

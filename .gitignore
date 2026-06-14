@@ -22,3 +22,5 @@ __pycache__/
 # React
 node_modules/
 build/
+
+@eaDir/
