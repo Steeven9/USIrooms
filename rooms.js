@@ -56,7 +56,7 @@ const roomsMarkup = {
   ),
   east: makeRoomMarkup(
     roomsData.east,
-    ["big", "big", "big", "big", "small", "small", "small", "small"],
+    null,
   ),
   east2: makeRoomMarkup(
     roomsData.east2,
